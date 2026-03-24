@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objetivos de Aprendizaje – Geografía del Ecuador – Licencia Tipo E</title>
+
+  <!-- ============================================================
+       RECURSO EDUCATIVO MOODLE
+       Asignatura : Geografía del Ecuador
+       Proceso    : Licencia Tipo E – Conducción Profesional
+       Institución: Sindicato Provincial de Choferes Profesionales de Manabí
+       Versión    : 1.0
+       Compatibilidad: HTML5 puro + CSS interno (sin frameworks externos)
+       ============================================================ -->
+
+  <style>
+    /* ---- RESET Y BASE ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: #f7f2f2;
+      color: #2b1a1a;
+      line-height: 1.65;
+    }
+
+    /* ---- CONTENEDOR PRINCIPAL ---- */
+    .contenedor {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 12px 40px;
+    }
+
+    /* ====================================================
+       BANNER / ENCABEZADO
+       ==================================================== */
+    .banner {
+      background: linear-gradient(135deg, #8b0000 0%, #c0392b 45%, #922b21 100%);
+      border-radius: 0 0 18px 18px;
+      padding: 36px 28px 30px;
+      text-align: center;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 24px rgba(139,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoración geométrica del banner */
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .banner::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .banner-icono {
+      font-size: 52px;
+      line-height: 1;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .banner h1 {
+      font-size: 1.9em;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      margin-bottom: 6px;
+    }
+
+    .banner-subtitulo {
+      color: #f9d2ce;
+      font-size: 1.05em;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .banner-institucion {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85em;
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .banner-linea {
+      width: 60px;
+      height: 3px;
+      background: rgba(255,255,255,0.45);
+      border-radius: 2px;
+      margin: 14px auto 10px;
+    }
+
+    /* ====================================================
+       OBJETIVO GENERAL
+       ==================================================== */
+    .objetivo-general {
+      background: linear-gradient(135deg, #7b0000 0%, #a93226 100%);
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 18px rgba(139,0,0,0.28);
+      border-left: 6px solid #ffcdd2;
+      position: relative;
+    }
+
+    .objetivo-general::before {
+      content: '★';
+      position: absolute;
+      top: 18px; right: 22px;
+      font-size: 28px;
+      color: rgba(255,205,210,0.35);
+    }
+
+    .etiqueta-og {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: #ffe0e0;
+      font-size: 0.7em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .objetivo-general h2 {
+      color: #fff;
+      font-size: 1.05em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .objetivo-general p {
+      color: #fce4e4;
+      font-size: 0.97em;
+      line-height: 1.7;
+    }
+
+    /* ====================================================
+       SECCIÓN DE UNIDADES
+       ==================================================== */
+    .seccion-titulo {
+      font-size: 0.8em;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b0000;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .seccion-titulo::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #c0392b55, transparent);
+    }
+
+    /* ====================================================
+       TARJETAS DE UNIDAD (details/summary)
+       ==================================================== */
+    .unidad-card {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #eacece;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(139,0,0,0.08);
+      transition: box-shadow 0.2s;
+    }
+
+    .unidad-card:hover {
+      box-shadow: 0 4px 18px rgba(139,0,0,0.14);
+    }
+
+    /* summary = cabecera clicable */
+    .unidad-card summary {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      cursor: pointer;
+      list-style: none;
+      background: linear-gradient(90deg, #fdf0f0 0%, #fff 100%);
+      border-left: 5px solid #c0392b;
+      user-select: none;
+    }
+
+    /* Quitar triángulo nativo en Firefox/Chrome */
+    .unidad-card summary::-webkit-details-marker { display: none; }
+    .unidad-card summary::marker { display: none; }
+
+    /* Flecha personalizada */
+    .flecha {
+      font-size: 18px;
+      color: #c0392b;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    details[open] .flecha { transform: rotate(90deg); }
+
+    .unidad-num {
+      background: linear-gradient(135deg, #8b0000, #c0392b);
+      color: #fff;
+      font-size: 0.72em;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .unidad-nombre {
+      flex: 1;
+      font-weight: 700;
+      color: #5c0a0a;
+      font-size: 0.97em;
+    }
+
+    .unidad-icono-header {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Cuerpo desplegable */
+    .unidad-cuerpo {
+      padding: 20px 24px 24px;
+      border-top: 1px solid #f3d7d7;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Objetivo de unidad */
+    .obj-unidad-bloque {
+      background: linear-gradient(90deg, #fdf0f0, #fff5f5);
+      border-left: 4px solid #c0392b;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+    }
+
+    .obj-unidad-etiqueta {
+      font-size: 0.68em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a93226;
+      margin-bottom: 5px;
+    }
+
+    .obj-unidad-texto {
+      color: #3d1111;
+      font-size: 0.94em;
+      font-weight: 600;
+    }
+
+    /* Objetivos específicos */
+    .obj-esp-titulo {
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8b0000;
+      margin-bottom: 10px;
+      margin-top: 6px;
+    }
+
+    .obj-esp-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .obj-esp-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #fffafa;
+      border: 1px solid #f0d8d8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.92em;
+      color: #2b1a1a;
+      transition: background 0.2s;
+    }
+
+    .obj-esp-lista li:hover {
+      background: #fef0f0;
+    }
+
+    .obj-bullet {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #8b0000, #c0392b);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.7em;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ====================================================
+       MEMBRETE / CIERRE INSTITUCIONAL
+       ==================================================== */
+    .membrete {
+      background: linear-gradient(135deg, #6b0000 0%, #8b0000 40%, #c0392b 100%);
+      border-radius: 16px;
+      padding: 34px 28px;
+      margin-top: 36px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(139,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .membrete::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .membrete-icono {
+      font-size: 42px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .membrete h3 {
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .membrete-cita {
+      color: #fce4e4;
+      font-style: italic;
+      font-size: 1em;
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto 18px;
+    }
+
+    .membrete-linea-sep {
+      width: 50px;
+      height: 2px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 2px;
+      margin: 16px auto;
+    }
+
+    .membrete-institucion {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.82em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .membrete-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.75em;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ====================================================
+       BARRA DE PROGRESO VISUAL (puramente decorativa)
+       ==================================================== */
+    .progreso-bloque {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      border: 1px solid #eacece;
+      box-shadow: 0 2px 8px rgba(139,0,0,0.07);
+    }
+
+    .progreso-titulo {
+      font-size: 0.75em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #a93226;
+      margin-bottom: 12px;
+    }
+
+    .prog-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .prog-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #fff0f0, #fdf5f5);
+      border: 1px solid #e8c8c8;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.78em;
+      color: #7b0000;
+      font-weight: 600;
+    }
+
+    .prog-dot {
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(135deg, #8b0000, #e74c3c);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ====================================================
+       RESPONSIVE BÁSICO
+       ==================================================== */
+    @media (max-width: 520px) {
+      .banner h1 { font-size: 1.4em; }
+      .unidad-card summary { padding: 13px 14px; }
+      .unidad-cuerpo { padding: 16px 16px 20px; }
+      .membrete { padding: 26px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+
+  <!-- =====================================================
+       BANNER PRINCIPAL
+       ===================================================== -->
+  <div class="banner">
+    <span class="banner-icono">🗺️</span>
+    <h1>Objetivos de Aprendizaje</h1>
+    <p class="banner-subtitulo">Geografía del Ecuador &nbsp;|&nbsp; Licencia Tipo E</p>
+    <div class="banner-linea"></div>
+    <p class="banner-institucion">
+      Sindicato Provincial de Choferes Profesionales de Manabí<br>
+      Proceso Formativo para Conductores Profesionales
+    </p>
+  </div>
+
+  <!-- =====================================================
+       CHIPS DE UNIDADES (orientación rápida)
+       ===================================================== -->
+  <div class="progreso-bloque">
+    <p class="progreso-titulo">📋 Contenido del Compendio — 9 Unidades</p>
+    <div class="prog-grid">
+      <span class="prog-chip"><span class="prog-dot"></span>U1 · Conceptos Fundamentales</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U2 · Datos Generales del Ecuador</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U3 · Región Litoral (Costa)</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U4 · Región Sierra</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U5 · Región Amazónica</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U6 · Región Insular – Galápagos</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U7 · Economía y Recursos</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U8 · Orientación y Red Vial</span>
+      <span class="prog-chip"><span class="prog-dot"></span>U9 · Biodiversidad y Áreas Protegidas</span>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       OBJETIVO GENERAL
+       ===================================================== -->
+  <div class="objetivo-general">
+    <span class="etiqueta-og">🎯 Objetivo General del Compendio</span>
+    <h2>Geografía del Ecuador — Licencia Tipo E</h2>
+    <p>
+      Comprender la organización territorial, física, humana, económica y vial del Ecuador,
+      identificando las características geográficas de sus cuatro regiones naturales y los
+      principales ejes de la red vial nacional, con el fin de aplicar este conocimiento en
+      la planificación de rutas, la toma de decisiones seguras y el desempeño responsable
+      como conductor profesional de categoría Tipo E.
+    </p>
+  </div>
+
+  <!-- =====================================================
+       SECCIÓN: UNIDADES INTERACTIVAS
+       ===================================================== -->
+  <p class="seccion-titulo">📚 Objetivos por Unidad</p>
+  <p style="font-size:0.84em; color:#7a3a3a; margin-bottom:18px;">
+    Haz clic sobre cada unidad para desplegar su objetivo y los objetivos específicos asociados.
+  </p>
+
+  <!-- ---- UNIDAD 1 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 1</span>
+        <span class="unidad-icono-header">🌍</span>
+        <span class="unidad-nombre">Geografía — Conceptos Fundamentales</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Reconocer los conceptos básicos de la geografía —relieve, clima y accidentes
+            geográficos— y relacionarlos con las condiciones del terreno y las rutas que
+            enfrenta el conductor profesional en el territorio ecuatoriano.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Identificar las principales ramas de la geografía y explicar su relevancia
+            para la planificación de rutas y la movilidad del transporte pesado.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Describir las formas del relieve terrestre presentes en el Ecuador —montañas,
+            valles, llanuras, volcanes— y relacionarlas con el tipo de carretera,
+            el consumo de combustible y la velocidad recomendada.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Diferenciar los pisos climáticos del Ecuador y aplicar las precauciones viales
+            correspondientes según la altitud y las condiciones meteorológicas del trayecto.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 2 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 2</span>
+        <span class="unidad-icono-header">🇪🇨</span>
+        <span class="unidad-nombre">Ecuador — Datos Generales y Organización Territorial</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Conocer la organización político-territorial, la diversidad cultural y las
+            características generales del Ecuador, fortaleciendo la identidad nacional
+            del conductor profesional y su comprensión del entorno en el que opera.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Localizar y caracterizar las cuatro regiones naturales del Ecuador,
+            reconociendo su extensión, provincias y características principales
+            para orientarse eficazmente durante la conducción interprovincial.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Distinguir los elementos y funciones del Estado ecuatoriano, y valorar
+            su influencia en la regulación del transporte, la infraestructura vial
+            y la normativa de tránsito.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Reconocer la diversidad étnica y cultural del Ecuador, promoviendo el
+            respeto hacia los pueblos y comunidades presentes en las rutas de trabajo.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 3 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 3</span>
+        <span class="unidad-icono-header">🌊</span>
+        <span class="unidad-nombre">Región Litoral (Costa)</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Caracterizar la Región Litoral del Ecuador —sus provincias, economía, cultura
+            y principales vías— para que el conductor profesional planifique rutas costeras
+            de manera segura, anticipando los riesgos viales propios de esta región.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Identificar las provincias de la Costa, sus capitales, extensión y características
+            productivas, relacionando cada provincia con las vías estatales que la conectan.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Aplicar las precauciones viales específicas para la Región Costa: riesgo de
+            inundaciones en invierno, neblina en zonas bajas, congestión en Guayaquil y
+            condiciones de la Ruta del Spondylus.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Valorar la importancia económica y cultural de la Costa ecuatoriana —banano,
+            camarón, gastronomía, identidad afroecuatoriana y montubia— como parte del
+            contexto geográfico del trabajo de transporte.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 4 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 4</span>
+        <span class="unidad-icono-header">⛰️</span>
+        <span class="unidad-nombre">Región Sierra (Interandina)</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Describir la Región Sierra, sus provincias, volcanes, altitudes y la
+            Panamericana E35 como eje vial principal, con el propósito de que el conductor
+            profesional adopte las medidas de seguridad adecuadas para la conducción
+            en terrenos montañosos y de alta pendiente.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Ubicar y caracterizar las diez provincias de la Sierra, sus altitudes
+            aproximadas y la Panamericana E35, reconociendo los tramos de mayor
+            riesgo por curvas, pendientes y neblina.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Identificar los principales volcanes y nevados del Ecuador —Chimborazo,
+            Cotopaxi, Tungurahua— y aplicar los protocolos de precaución vial
+            cuando se transita por zonas de influencia volcánica.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Aplicar estrategias de conducción segura en condiciones de páramo: hielo
+            en la calzada, temperaturas bajo cero, neblina densa y zonas de deslaves
+            como Alausí–Tixán.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 5 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 5</span>
+        <span class="unidad-icono-header">🌿</span>
+        <span class="unidad-nombre">Región Amazónica (Oriente)</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Conocer la Región Amazónica del Ecuador —sus provincias, recursos estratégicos,
+            red vial y condiciones climáticas extremas— para que el conductor profesional
+            enfrente con preparación y seguridad los desafíos de operar en la Amazonía.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Describir las seis provincias amazónicas, sus capitales, extensión y
+            la Troncal Amazónica E45, relacionando cada tramo con sus características
+            viales y condiciones de accesibilidad.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Explicar la importancia del sector petrolero en la Amazonía y sus implicaciones
+            para el transporte pesado: tráfico de tanqueros, vías de carga y normas
+            de circulación en zonas de extracción.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Implementar medidas de precaución vial específicas para la Amazonía:
+            derrumbes, animales en la vía, neblina, vías sin pavimentar y
+            crecida de ríos en temporada lluviosa.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 6 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 6</span>
+        <span class="unidad-icono-header">🏝️</span>
+        <span class="unidad-nombre">Región Insular — Galápagos</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Reconocer las características únicas de la Región Insular Galápagos —su
+            biodiversidad endémica, declaratorias UNESCO, regulaciones especiales de
+            transporte y normativas de circulación— valorando su importancia para
+            la identidad y el patrimonio nacional.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Identificar los datos generales de Galápagos —ubicación, islas, cantones,
+            población y huso horario— comprendiendo las condiciones logísticas especiales
+            del transporte en un territorio insular.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Describir la fauna y flora endémica de Galápagos y explicar por qué la
+            protección de estas especies determina límites de velocidad, restricciones
+            vehiculares y normativas únicas de movilidad en las islas.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Aplicar las regulaciones viales vigentes en Galápagos: permisos especiales,
+            velocidad reducida para proteger fauna, fomento de movilidad eléctrica
+            y restricciones de importación vehicular.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 7 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 7</span>
+        <span class="unidad-icono-header">💼</span>
+        <span class="unidad-nombre">Economía y Recursos del Ecuador</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Comprender la estructura económica del Ecuador —sectores productivos,
+            exportaciones estratégicas y fuentes de energía— para que el conductor
+            profesional entienda el papel del transporte de carga en la cadena
+            productiva nacional y su responsabilidad económica y logística.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Diferenciar los sectores económicos primario, secundario y terciario del
+            Ecuador, reconociendo los productos que el conductor profesional transporta
+            frecuentemente y su valor para la economía nacional.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Identificar los principales productos de exportación —petróleo, banano,
+            camarón, cacao, flores— y las rutas de transporte asociadas a cada sector
+            productivo en el territorio ecuatoriano.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Reconocer las centrales hidroeléctricas y yacimientos mineros estratégicos
+            del Ecuador, comprendiendo su impacto en el tráfico de maquinaria pesada
+            y la planificación de rutas en zonas de producción energética.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 8 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 8</span>
+        <span class="unidad-icono-header">🛣️</span>
+        <span class="unidad-nombre">Orientación Geográfica y Red Vial Nacional</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Manejar con eficiencia los métodos de orientación geográfica —especialmente
+            el GPS— y conocer la estructura de la red vial nacional, los principales
+            ejes viales codificados y el sistema de transporte multimodal del Ecuador,
+            para optimizar rutas y garantizar una conducción profesional segura.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Utilizar correctamente los métodos de orientación geográfica —brújula, sol,
+            estrellas y GPS— priorizando el uso del sistema satelital como herramienta
+            indispensable en la logística y planificación de rutas de transporte.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Identificar los principales ejes viales del Ecuador —E35 Panamericana,
+            E15 Troncal del Pacífico, E45 Troncal Amazónica, entre otros— y describir
+            los tramos, regiones y destinos que cada uno conecta.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Diferenciar los tipos de vías del Ecuador —estatales, provinciales, cantonales,
+            de penetración y de circunvalación— aplicando las normas de conducción y los
+            límites de velocidad correspondientes a cada categoría.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ---- UNIDAD 9 ---- -->
+  <div class="unidad-card">
+    <details>
+      <summary>
+        <span class="flecha">▶</span>
+        <span class="unidad-num">UNIDAD 9</span>
+        <span class="unidad-icono-header">🦋</span>
+        <span class="unidad-nombre">Biodiversidad y Áreas Protegidas del Ecuador</span>
+      </summary>
+      <div class="unidad-cuerpo">
+
+        <div class="obj-unidad-bloque">
+          <p class="obj-unidad-etiqueta">🎯 Objetivo de la Unidad</p>
+          <p class="obj-unidad-texto">
+            Reconocer la riqueza biológica del Ecuador, sus áreas naturales protegidas
+            y los derechos marítimos del Estado, desarrollando en el conductor profesional
+            una conciencia ambiental que oriente una conducción responsable, respetuosa
+            del entorno natural y alineada con las regulaciones de tránsito en zonas de
+            alto valor ecológico.
+          </p>
+        </div>
+
+        <p class="obj-esp-titulo">✅ Objetivos Específicos</p>
+        <ul class="obj-esp-lista">
+          <li>
+            <span class="obj-bullet">1</span>
+            Describir la flora y fauna representativa de cada región natural del Ecuador,
+            valorando por qué la presencia de animales silvestres en las vías exige
+            reducción de velocidad y atención permanente durante la conducción.
+          </li>
+          <li>
+            <span class="obj-bullet">2</span>
+            Identificar las principales áreas naturales protegidas del Ecuador —Yasuní,
+            Galápagos, Cajas, Cotopaxi, Sangay— y conocer las restricciones de tránsito
+            y normativas especiales aplicables en zonas de amortiguamiento y acceso
+            a parques nacionales.
+          </li>
+          <li>
+            <span class="obj-bullet">3</span>
+            Explicar la organización del mar territorial ecuatoriano y su zona económica
+            exclusiva, comprendiendo su relevancia para el transporte marítimo y el
+            comercio exterior vinculado a la actividad del conductor de carga pesada.
+          </li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- =====================================================
+       MEMBRETE INSTITUCIONAL FINAL
+       ===================================================== -->
+  <div class="membrete">
+    <span class="membrete-icono">🚛</span>
+    <h3>Conducir con Conocimiento es Conducir con Seguridad</h3>
+    <p class="membrete-cita">
+      "Un conductor profesional que conoce su territorio, sus vías y sus condiciones
+      climáticas no solo protege su vida, sino también la vida de quienes comparten
+      la carretera. La geografía no es solo una asignatura; es el mapa de tu
+      responsabilidad diaria."
+    </p>
+    <div class="membrete-linea-sep"></div>
+    <p class="membrete-institucion">
+      Sindicato Provincial de Choferes Profesionales de Manabí
+    </p>
+    <p class="membrete-sub">
+      Proceso Formativo · Licencia Tipo E · Geografía del Ecuador<br>
+      Material pedagógico de uso exclusivo para formación profesional
+    </p>
+  </div>
+
+</div><!-- fin .contenedor -->
+</body>
+</html>
